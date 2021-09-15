@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-info ">
+            <div class="row">
+                <div class="col-4">
+                    <h4> {{task.name}} <span> {{task.id}} </span></h4>
+                </div>
+                <div class="col-8">
+                    <button class="btn btn-danger" (click)="taskDelete()">Delte Task</button>    
+                </div>
+            </div>
+           
+        </div>
+
+        <div class="card-body">
+            <input class="p-1" type="text" placeholder="name Task" #Task>
+            <button class="btn btn-success" (click)="addSubTask(Task.value)" *ngIf="isEdit? null : true">Add</button>
+            <button class="btn btn-success" (click)="editItem(Task.value)" *ngIf="isEdit? true : null">Edit Item</button>
+
+            <app-item *ngFor="let item of task.items; index as iItem" [item]="item"
+                (eventItemDelte)="deleteItem($event)" (eventItemEdit)="configEditItem($event) ">
+            </app-item>
+        </div>
+    </div>
+    <br>
+</div>

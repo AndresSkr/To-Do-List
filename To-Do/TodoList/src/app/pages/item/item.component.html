@@ -1,0 +1,22 @@
+<div class="container" >
+    <div class="row">
+        <div class="col-9">
+            <p>
+                <span [ngClass]="{ striker: item.done}"> {{item.name}} </span>
+            </p>
+        </div>
+
+        <div class="col-1">
+            <input type="checkbox" name="ok" id="ok" [checked]="item.done" (change)="ChangeStatus()">
+        </div>
+
+        <div class="col-1">
+            <button class="btn btn-danger" (click)="delete()">Delete</button>
+        </div>
+        
+        <div class="col-1">
+            <button class="btn btn-secondary" [disabled]="item.done? true : null" (click)="edit()">Edit</button>
+        </div>
+    </div>
+    <hr>
+</div>

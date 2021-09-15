@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Menu</h1>
+
+    <div>
+        <input class="p-1" type="name" placeholder="name" id="name" #name />
+        <button class="btn btn-success" (click)="addTask(name.value)">Add Task</button>
+    </div>
+    <br>
+    <div class="card">
+
+        <div class="card-header bg-primary d-flex justify-content-center">
+            <h1>List</h1>
+        </div>
+
+        <div class="card-body">
+            <app-list *ngFor="let task of listTask; index as iList" [task]="task" (delteTask)="deleteTask($event)"
+                (addItem)="getData()">
+            </app-list>
+        </div>
+    </div>
+
+</div>
